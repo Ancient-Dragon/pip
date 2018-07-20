@@ -2,7 +2,9 @@
 This is your chance to shiw us what you can do with PHP, CSS, MySQL and Javascript. We've given you some ideas on things we'd like to see
 try but dont let that limit you. Show us what you can do.
 
-Please create a new Branch for your alrerations.
+Please leave comments and/or pseudo code for any areas that you were unable to finish or that you would have expanded on given more time.
+
+Please create a new Branch for your alterations.
 
 
 
