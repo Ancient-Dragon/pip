@@ -2,8 +2,11 @@
 
 class Main extends Controller {
 	
+	
+	
 	function index()
 	{
+		
 		$pageModel = $this->loadModel('Page_model');
 		$pagecontent = $pageModel->get('/');
 		
