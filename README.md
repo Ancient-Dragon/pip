@@ -35,7 +35,7 @@ located at [https://github.com/AutomicWeb/pip/blob/master/ca_db.sql](https://git
 ## Things to Try
 * Add bootstrap or similar css and stylesheets to style content.
 * Add more pages to the website with a top nav to move between them.
-* Create a login form that queries database for a user account before allowing access. Suggest using the session helper for controlling sessions. (will need a new USER table, suggest also new models controllers and views for this)
+* Create a login form that queries database for a user account before allowing access. Suggest using the session helper for controlling sessions. (will need a new USER table with new models controllers and views)
 * Be creative, show us what you can do.
 
 
