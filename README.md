@@ -4,7 +4,7 @@ but don't let that limit you.
 
 Please leave comments and/or pseudo code for any areas that you were unable to finish or that you would have expanded on given more time.
 
-Please create a new Branch for your alterations, and please have fun with it.
+Please Fork this Repository for your alterations, and please have fun with it.
 
 
 
