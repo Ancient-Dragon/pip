@@ -3,8 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <?php if(isset($title)) echo "<title> $title | Recipe Buddy</title>";
+    else echo '<title>Recipe Buddy</title>' ?>
 
-    <title>Recipe Buddy</title>
     <meta name="description" content="">
     <meta name="author" content="">
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -31,7 +32,7 @@
         <div class="collapse navbar-collapse" id="navbarToggler">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a href="<?php echo BASE_URL; ?>/login" class="btn btn-outline-info btn-round"><i class="fas fa-fingerprint"></i> Sign In</a>
+                    <a href="<?php echo BASE_URL; ?>auth/login" class="btn btn-outline-info btn-round"><i class="fas fa-fingerprint"></i> Sign In</a>
                 </li>
             </ul>
         </div>
