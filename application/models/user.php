@@ -2,6 +2,7 @@
 
 class User extends Model {
 
+    private $id;
     private $email;
     private $password;
 
@@ -10,10 +11,14 @@ class User extends Model {
      * @param $email
      * @param $password
      */
-    function __construct($email, $password) {
+    public function __construct() {
         parent::__construct();
+    }
+
+    public function create($email, $password) {
         $this->email = $email;
         $this->password = password_hash($password, PASSWORD_ARGON2I);
+        $this->insert("INSERT INTO users (`email`, `password`) VALUES ('" . $this->email . "','" . $this->password ."')");
     }
 
     public function getPassword() {
@@ -24,13 +29,16 @@ class User extends Model {
         $this->password = password_hash($password, PASSWORD_ARGON2I);
     }
 
-    public function get($id)
-    {
-        $id = $this->escapeString($id);
-        $result = $this->query('SELECT * FROM users WHERE url="'. $id .'"');
+    public function getUser($email) {
+        $email = $this->escapeString($email);
+        $result = $this->query('SELECT * FROM users WHERE email="'. $email .'"', 'user', 1);
         return $result;
     }
 
+    public function checkPassword($password) {
+        password_verify($password, PASSWORD_ARGON2I);
+        return true;
+    }
 }
 
 ?>

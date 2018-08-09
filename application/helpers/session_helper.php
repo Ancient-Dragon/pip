@@ -17,6 +17,13 @@ class Session_helper {
 		session_destroy();
 	}
 
+	function create($uid) {
+
+    }
+
+    function getUser() {
+
+    }
 }
 
 ?>

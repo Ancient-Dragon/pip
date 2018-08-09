@@ -44,18 +44,29 @@ class Model {
 	    return date('Y-m-d H:i:s', $val);
 	}
 
-	public function query($qry)
-	{
-		$resultObjects = array();
-
+	public function insert($qry) {
         $resource = $this->connection->query($qry);
         if ( !$resource ) die('Database Error: '.$this->connection->error);
-        while ( $row = $resource->fetch_object("Model")) {
-            $resultObjects[] = $row;
-        }
-        $resource->free();
+	}
 
-		return $resultObjects;
+	public function query($qry, $class, $expectedNoResults = 0)
+	{
+
+        $resource = $this->connection->query($qry);
+
+        if ( !$resource ) die('Database Error: '.$this->connection->error);
+        if($expectedNoResults !== 0) {
+            $resultObject = $resource->fetch_object($class);
+            $resource->free();
+            return $resultObject;
+        } else {
+            $resultObjects = array();
+            while ($resource && $row = $resource->fetch_object($class)) {
+                $resultObjects[] = $row;
+            }
+            $resource->free();
+            return $resultObjects;
+        }
 	}
 
 	public function execute($qry)

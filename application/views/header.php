@@ -32,6 +32,13 @@
         <div class="collapse navbar-collapse" id="navbarToggler">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
+                    <a href="<?php echo BASE_URL; ?>all-recipes" class="nav-link"><i class="nc-icon nc-book-bookmark"></i> All Recipes</a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?php echo BASE_URL; ?>my-recipes" class="nav-link"><i class="nc-icon nc-paper"></i> My Recipes</a>
+                </li>
+
+                <li class="nav-item">
                     <a href="<?php echo BASE_URL; ?>auth/login" class="btn btn-outline-info btn-round"><i class="fas fa-fingerprint"></i> Sign In</a>
                 </li>
             </ul>

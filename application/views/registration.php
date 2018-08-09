@@ -12,16 +12,36 @@ include('header.php'); ?>
                             <h3 class="title">Sign Up</h3>
                             <form class="register-form" id="register" name="register" action="#" method="post">
                                 <label for="email">Email</label>
-                                <input type="email" id="email" name="email" class="form-control" placeholder="Email Address">
+                                <div class="input-group form-group-no-border">
+                                        <span class="input-group-addon">
+                                            <i class="nc-icon nc-email-85"></i>
+                                        </span>
+                                    <input type="email" id="email" name="email" class="form-control" placeholder="Email Address">
+                                </div>
 
                                 <label for="confirm_email">Confirm Email</label>
-                                <input type="email" id="confirm_email" name="confirm_email" class="form-control" placeholder="Confirm Email Address">
+                                <div class="input-group form-group-no-border">
+                                        <span class="input-group-addon">
+                                            <i class="nc-icon nc-email-85"></i>
+                                        </span>
+                                    <input type="email" id="confirm_email" name="confirm_email" class="form-control" placeholder="Confirm Email Address">
+                                </div>
 
                                 <label for="password">Password</label>
-                                <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+                                <div class="input-group form-group-no-border">
+                                        <span class="input-group-addon">
+                                            <i class="nc-icon nc-key-25"></i>
+                                        </span>
+                                    <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+                                </div>
 
-                                <label for="confirm_password">Password</label>
-                                <input type="password" id="confirm_password" name="confirm_password" class="form-control" placeholder="Confirm Password">
+                                <label for="confirm_password">Confirm Password</label>
+                                <div class="input-group form-group-no-border">
+                                        <span class="input-group-addon">
+                                            <i class="nc-icon nc-key-25"></i>
+                                        </span>
+                                    <input type="password" id="confirm_password" name="confirm_password" class="form-control" placeholder="Confirm Password">
+                                </div>
 
                                 <button type="submit" class="btn btn-primary btn-block btn-round">Register</button>
                             </form>
