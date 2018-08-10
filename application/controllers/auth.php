@@ -24,7 +24,15 @@ class Auth extends Controller {
             $foundUser = $user->getUser($_POST['email']);
             if(!is_null($foundUser)) {
                 if($foundUser->checkPassword($_POST['password'])) {
-
+                    $session = $this->loadModel('session');
+                    $time = new DateTime();
+                    $sess_id = md5($time->getTimestamp());
+                    $helper = $this->loadHelper('session_helper');
+                    $helper->set('id', $sess_id);
+                    //echo "INSERT INTO `sessions` (`id`, `user_id`) VALUES ('" . $sess_id . "','" . $foundUser->getId() ."')";
+                    $session->execute("INSERT INTO `sessions` (`id`, `user_id`) VALUES ('" . $sess_id . "','" . $foundUser->getId() ."')");
+                    header("Location: " . BASE_URL );
+                    exit;
                 }
             }
         } else {
@@ -33,6 +41,15 @@ class Auth extends Controller {
         }
     }
 
+    function logout() {
+        $session = $this->loadModel('session');
+        $sessionHelper = $this->loadHelper('session_helper');
+        $sess_id = $sessionHelper->get('id');
+        $session->execute('DELETE FROM `sessions` WHERE `id` = "' . $sess_id . '"');
+        $sessionHelper->destroy();
+        header("Location: " . BASE_URL . "auth/login");
+        exit;
+    }
 }
 
 ?>

@@ -2,7 +2,7 @@
 
 class Session_helper {
 
-	function set($key, $val)
+    function set($key, $val)
 	{
 		$_SESSION["$key"] = $val;
 	}
@@ -16,14 +16,6 @@ class Session_helper {
 	{
 		session_destroy();
 	}
-
-	function create($uid) {
-
-    }
-
-    function getUser() {
-
-    }
 }
 
 ?>

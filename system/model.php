@@ -44,11 +44,6 @@ class Model {
 	    return date('Y-m-d H:i:s', $val);
 	}
 
-	public function insert($qry) {
-        $resource = $this->connection->query($qry);
-        if ( !$resource ) die('Database Error: '.$this->connection->error);
-	}
-
 	public function query($qry, $class, $expectedNoResults = 0)
 	{
 

@@ -32,15 +32,26 @@
         <div class="collapse navbar-collapse" id="navbarToggler">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a href="<?php echo BASE_URL; ?>all-recipes" class="nav-link"><i class="nc-icon nc-book-bookmark"></i> All Recipes</a>
+                    <a href="<?php echo BASE_URL; ?>all_recipes" class="nav-link"><i class="nc-icon nc-book-bookmark"></i> All Recipes</a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?php echo BASE_URL; ?>my-recipes" class="nav-link"><i class="nc-icon nc-paper"></i> My Recipes</a>
+                    <a href="<?php echo BASE_URL; ?>my_recipes" class="nav-link"><i class="nc-icon nc-paper"></i> My Recipes</a>
                 </li>
-
+                <?php if(!$page['loggedIn']) { ?>
                 <li class="nav-item">
                     <a href="<?php echo BASE_URL; ?>auth/login" class="btn btn-outline-info btn-round"><i class="fas fa-fingerprint"></i> Sign In</a>
                 </li>
+                <?php } else { ?>
+                    <div class="nav-item dropdown">
+                        <a class="btn btn-outline-info btn-round dropdown-toggle" data-toggle="dropdown" href="#pk" role="button" aria-haspopup="true" aria-expanded="false"><i class="far fa-user-circle " aria-hidden="true"></i> My Account</a>
+                        <ul class="dropdown-menu dropdown-menu-right dropdown-info">
+                            <li class="dropdown-header" href="#">Account Settings</li>
+                            <a class="dropdown-item" href="<?php echo BASE_URL; ?>my_profile">My Profile</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="<?php echo BASE_URL; ?>auth/logout">Logout</a>
+                        </ul>
+                    </div>
+                <?php } ?>
             </ul>
         </div>
     </div>
