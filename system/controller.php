@@ -1,8 +1,9 @@
 <?php
 
 class Controller {
-	
-	public function loadModel($name)
+
+
+    public function loadModel($name)
 	{
 		require(APP_DIR .'models/'. strtolower($name) .'.php');
 
@@ -34,7 +35,27 @@ class Controller {
 		
 		header('Location: '. $config['base_url'] . $loc);
 	}
-    
+
+    /**
+     * @param $userModel
+     * @param $session
+     *
+     * As every controller requires the ability to check authentication, the method here, checks whether the session
+     * id can be found and then if it is then uses the user model's checkAuth method to determine whether there is a
+     * valid user.
+     *
+     * @return bool
+     */
+    public function checkAuth($userModel, $session) {
+
+        if(!is_null($session->get('id'))) {
+            if($userModel->checkAuth($session->get('id'))) {
+                return true;
+            }
+        } else {
+            return false;
+        }
+    }
 }
 
 ?>

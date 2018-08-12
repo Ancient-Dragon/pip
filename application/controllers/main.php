@@ -1,25 +1,23 @@
 <?php
 
 class Main extends Controller {
-	
-	
-	
-	function index()
+
+    /**
+     * Loads all the necessary models, before getting the first 4 recipes (for now this will do) before getting all the
+	 * users associated with those recipes. Then passes the recipes and users onto the view.
+     */
+    function index()
 	{
-		$session = $this->loadHelper('session_helper');
+		$recipeModel = $this->loadModel('recipe');
 		$userModel = $this->loadModel('user');
-		$pageModel = $this->loadModel('Page_model');
-		$pagecontent = $pageModel->get('/');
-		
-		$template = $this->loadView('main_view');
-		if(!is_null($session->get('id'))) {
-			if($userModel->checkAuth($session->get('id'))) {
-				$loggedIn = true;
-			}
-        } else {
-			$loggedIn = false;
+		$sessionHelper = $this->loadHelper('session_helper');
+		$recipes = $recipeModel->getRecipes(4);
+		$users = array();
+		foreach ($recipes as $recipe) {
+			$users[] = $userModel->getUser('id', $recipe->getUserId());
 		}
-		$template->set('page', ['loggedIn' => $loggedIn]);
+        $template = $this->loadView('main_view');
+        $template->set('page', ['loggedIn' => $this->checkAuth($userModel, $sessionHelper), 'recipes' => $recipes, 'users' => $users]);
 		$template->render();
 	}
     

@@ -4,8 +4,8 @@
             <nav class="footer-nav">
                 <ul>
                     <li><a href="<?php echo BASE_URL; ?>">Home</a></li>
-                    <li><a href="<?php echo BASE_URL; ?>/support">Support</a></li>
-                    <li><a href="<?php echo BASE_URL; ?>/contact">Contact</a></li>
+                    <li><a href="<?php echo BASE_URL; ?>#">Support</a></li>
+                    <li><a href="<?php echo BASE_URL; ?>#">Contact</a></li>
 
                 </ul>
             </nav>

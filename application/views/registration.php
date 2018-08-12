@@ -1,5 +1,7 @@
 <?php
 $title = "Register";
+$classes = 'navbar-transparent';
+
 include('header.php'); ?>
 
     <div class="wrapper">

@@ -50,7 +50,7 @@ class Model {
         $resource = $this->connection->query($qry);
 
         if ( !$resource ) die('Database Error: '.$this->connection->error);
-        if($expectedNoResults !== 0) {
+        if($expectedNoResults === 1) {
             $resultObject = $resource->fetch_object($class);
             $resource->free();
             return $resultObject;

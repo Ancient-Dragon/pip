@@ -1,5 +1,6 @@
 <?php
 $title = "Login";
+$classes = 'navbar-transparent';
 include('header.php'); ?>
 
     <div class="wrapper">

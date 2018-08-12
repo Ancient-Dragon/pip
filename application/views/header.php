@@ -14,12 +14,18 @@
 
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>static/css/bootstrap.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>static/css/paper-kit.css?v=2.1.0" type="text/css" media="screen" />
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>static/css/demo.css" type="text/css" media="screen" />
+
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>static/css/nucleo-icons.css" type="text/css" media="screen" />
 </head>
 <body>
-<nav class="navbar navbar-expand-md fixed-top navbar-transparent" color-on-scroll="500">
+<?php if(isset($classes)) { ?>
+<nav class="navbar navbar-expand-md fixed-top <?php echo $classes?>" color-on-scroll="<?php echo $height ?>">
+    <?php } else { ?>
+    <nav class="navbar navbar-expand-md fixed-top">
+    <?php } ?>
     <div class="container">
         <div class="navbar-translate">
             <button class="navbar-toggler navbar-toggler-right navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">

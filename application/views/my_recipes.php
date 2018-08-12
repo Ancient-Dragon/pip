@@ -5,53 +5,23 @@ include('header.php'); ?>
         <div class="section section-buttons">
             <div class="container">
                 <div class="tim-title">
-                    <h2>My Recipes</h2>
+                    <h2>My Recipes  <a type="button" class="btn btn-outline-info btn-round" href="<?php echo BASE_URL; ?>recipes/create">New Recipe</a></h2>
                 </div>
                 <div class="row">
-                    <div class="col-8 col-sm-6 col-md-3">
-                        <h4 class="images-title">Rounded Image</h4>
-                        <img src="<?php echo BASE_URL; ?>static/images/recipes.jpg" class="img-rounded img-responsive" alt="Rounded Image">
-                        <div class="img-details">
-                            <div class="author">
-                                <img src="<?php echo BASE_URL; ?>static/images/avatar.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                    <?php foreach ($page['recipes'] as $recipe) { ?>
+                        <div class="col-8 col-sm-6 col-md-3">
+                            <h4 class="images-title"><a href="<?php echo BASE_URL; ?>recipes/view/<?php echo $recipe->getId()?>"><?php echo $recipe->getName()?></a></h4>
+                            <a href="<?php echo BASE_URL; ?>recipes/view/<?php echo $recipe->getId()?>"><img src="<?php echo BASE_URL; ?>static/images/recipes.jpg" class="img-rounded img-responsive" alt="Rounded Image"></a>
+                            <div class="img-details">
+                                <div class="author">
+                                    <img src="<?php echo BASE_URL; ?>static/images/avatar.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                                </div>
+                                <p><?php echo $page['user']->getEmail(); ?></p>
                             </div>
-                            <p>Chet Faker</p>
                         </div>
-                    </div>
-                    <div class="col-8 col-sm-6 col-md-3">
-                        <h4 class="images-title">Rounded Image</h4>
-                        <img src="<?php echo BASE_URL; ?>static/images/recipes.jpg" class="img-rounded img-responsive" alt="Rounded Image">
-                        <div class="img-details">
-                            <div class="author">
-                                <img src="<?php echo BASE_URL; ?>static/images/avatar.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                            </div>
-                            <p>Chet Faker</p>
-                        </div>
-                    </div>
-                    <div class="col-8 col-sm-6 col-md-3">
-                        <h4 class="images-title">Rounded Image</h4>
-                        <img src="<?php echo BASE_URL; ?>static/images/recipes.jpg" class="img-rounded img-responsive" alt="Rounded Image">
-                        <div class="img-details">
-                            <div class="author">
-                                <img src="<?php echo BASE_URL; ?>static/images/avatar.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                            </div>
-                            <p>Chet Faker</p>
-                        </div>
-                    </div>
-                    <div class="col-8 col-sm-6 col-md-3">
-                        <h4 class="images-title">Rounded Image</h4>
-                        <img src="<?php echo BASE_URL; ?>static/images/recipes.jpg" class="img-rounded img-responsive" alt="Rounded Image">
-                        <div class="img-details">
-                            <div class="author">
-                                <img src="<?php echo BASE_URL; ?>static/images/avatar.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                            </div>
-                            <p>Chet Faker</p>
-                        </div>
-                    </div>
+                    <?php } ?>
                 </div>
-                <a type="button" class="btn btn-outline-info btn-round col-md-12" href="<?php echo BASE_URL; ?>all_recipes">View all recipes</a>
             </div>
         </div>
     </div>
-
 <?php include('footer.php'); ?>
